@@ -32,6 +32,11 @@
               "borderColor": "#E0DEDE",
               "widgetName": "leaveRequestModal",
               "isCanvas": true,
+              "dynamicPropertyPathList": [
+                {
+                  "key": "isVisible"
+                }
+              ],
               "displayName": "Form",
               "iconSVG": "/static/media/icon.ea3e08d130e59c56867ae40114c10eed.svg",
               "searchTags": [
@@ -53,6 +58,9 @@
                 },
                 {
                   "key": "boxShadow"
+                },
+                {
+                  "key": "isVisible"
                 }
               ],
               "children": [
@@ -581,6 +589,9 @@
                         },
                         {
                           "key": "borderRadius"
+                        },
+                        {
+                          "key": "defaultText"
                         }
                       ],
                       "labelPosition": "Left",
@@ -605,7 +616,7 @@
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
                       "iconAlign": "left",
-                      "defaultText": "",
+                      "defaultText": "{{getMe.data[0]['Avaiable Leaves'] - totalDayE.text }}",
                       "minDynamicHeight": 4
                     },
                     {
@@ -732,7 +743,7 @@
               "rightColumn": 64,
               "dynamicHeight": "AUTO_HEIGHT",
               "widgetId": "sqva5kwa2q",
-              "isVisible": true,
+              "isVisible": "{{getMe.data.length===1}}",
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
@@ -934,10 +945,10 @@
                       "parentId": "9p4v52to8m",
                       "renderMode": "CANVAS",
                       "isLoading": false,
-                      "originalTopRow": 18,
+                      "originalTopRow": 15,
                       "disabledWhenInvalid": false,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                      "originalBottomRow": 22,
+                      "originalBottomRow": 19,
                       "buttonVariant": "SECONDARY",
                       "placement": "CENTER"
                     },
@@ -945,7 +956,7 @@
                       "resetFormOnClick": false,
                       "boxShadow": "none",
                       "widgetName": "confirmM",
-                      "onClick": "{{requestLeave.run(() => showAlert('success','success'), () => showAlert('Error','error'))}}",
+                      "onClick": "{{requestLeave.run(() => closeModal('confirmModal'), () => showAlert('Error','error'))}}",
                       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
                       "dynamicPropertyPathList": [
                         {
@@ -994,10 +1005,10 @@
                       "parentId": "9p4v52to8m",
                       "renderMode": "CANVAS",
                       "isLoading": false,
-                      "originalTopRow": 18,
+                      "originalTopRow": 15,
                       "disabledWhenInvalid": false,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                      "originalBottomRow": 22,
+                      "originalBottomRow": 19,
                       "buttonVariant": "PRIMARY",
                       "placement": "CENTER"
                     },
@@ -1054,7 +1065,7 @@
                       "originalTopRow": 6,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
-                      "originalBottomRow": 13,
+                      "originalBottomRow": 10,
                       "fontSize": "1rem",
                       "minDynamicHeight": 4
                     }
@@ -1085,7 +1096,7 @@
               "parentId": "0",
               "renderMode": "CANVAS",
               "isLoading": false,
-              "onClose": "",
+              "onClose": "{{listMyLeavesRequested.run()}}",
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
               "width": 456,

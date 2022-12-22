@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "(startTimeString, endTimeString, listLeaveRequestRequestOrAccept) => {\n  const startTimeMoment = moment(startTimeString);\n  const endTimeMoment = moment(endTimeString);\n  if (startTimeMoment.isAfter(moment()) || endTimeMoment.isAfter(startTimeMoment)) {\n    return false;\n  }\n  const isNotValid = listLeaveRequestRequestOrAccept.some(leaveRequestOrAccept => {\n    const startMoment = moment(leaveRequestOrAccept['Start Date']);\n    const endMoment = moment(leaveRequestOrAccept['End Date']);\n    return startTimeMoment.diff(startMoment) >= 0 && startTimeMoment.diff(endMoment) <= 0 || endTimeMoment.diff(startMoment) >= 0 && endTimeMoment.diff(endMoment) <= 0;\n  });\n  return !isNotValid;\n}",
+      "body": "(startTimeString, endTimeString, listLeaveRequestRequestOrAccept) => {\n  const startTimeMoment = moment(startTimeString);\n  const endTimeMoment = moment(endTimeString);\n  if (startTimeMoment.isBefore(moment().set({\n    hour: 0\n  })) || endTimeMoment.isBefore(startTimeMoment)) {\n    return false;\n  }\n  const isNotValid = listLeaveRequestRequestOrAccept.some(leaveRequestOrAccept => {\n    const startMoment = moment(leaveRequestOrAccept['Start Date']);\n    const endMoment = moment(leaveRequestOrAccept['End Date']);\n    return startTimeMoment.diff(startMoment) >= 0 && startTimeMoment.diff(endMoment) <= 0 || endTimeMoment.diff(startMoment) >= 0 && endTimeMoment.diff(endMoment) <= 0;\n  });\n  return !isNotValid;\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {},
@@ -38,7 +38,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "(startTimeString, endTimeString, listLeaveRequestRequestOrAccept) => {\n  const startTimeMoment = moment(startTimeString);\n  const endTimeMoment = moment(endTimeString);\n  if (startTimeMoment.isAfter(moment()) || endTimeMoment.isAfter(startTimeMoment)) {\n    return false;\n  }\n  const isNotValid = listLeaveRequestRequestOrAccept.some(leaveRequestOrAccept => {\n    const startMoment = moment(leaveRequestOrAccept['Start Date']);\n    const endMoment = moment(leaveRequestOrAccept['End Date']);\n    return startTimeMoment.diff(startMoment) >= 0 && startTimeMoment.diff(endMoment) <= 0 || endTimeMoment.diff(startMoment) >= 0 && endTimeMoment.diff(endMoment) <= 0;\n  });\n  return !isNotValid;\n}"
+      "(startTimeString, endTimeString, listLeaveRequestRequestOrAccept) => {\n  const startTimeMoment = moment(startTimeString);\n  const endTimeMoment = moment(endTimeString);\n  if (startTimeMoment.isBefore(moment().set({\n    hour: 0\n  })) || endTimeMoment.isBefore(startTimeMoment)) {\n    return false;\n  }\n  const isNotValid = listLeaveRequestRequestOrAccept.some(leaveRequestOrAccept => {\n    const startMoment = moment(leaveRequestOrAccept['Start Date']);\n    const endMoment = moment(leaveRequestOrAccept['End Date']);\n    return startTimeMoment.diff(startMoment) >= 0 && startTimeMoment.diff(endMoment) <= 0 || endTimeMoment.diff(startMoment) >= 0 && endTimeMoment.diff(endMoment) <= 0;\n  });\n  return !isNotValid;\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
