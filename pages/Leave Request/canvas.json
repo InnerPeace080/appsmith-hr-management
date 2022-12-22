@@ -1518,6 +1518,16 @@
         "layoutOnLoadActions": [
           [
             {
+              "id": "Leave Request_listSupporter",
+              "name": "listSupporter",
+              "confirmBeforeExecute": false,
+              "pluginType": "SAAS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
               "id": "Leave Request_getMe",
               "name": "getMe",
               "confirmBeforeExecute": false,
@@ -1525,14 +1535,6 @@
               "jsonPathKeys": [
                 "appsmith.user.email"
               ],
-              "timeoutInMillisecond": 10000
-            },
-            {
-              "id": "Leave Request_listSupporter",
-              "name": "listSupporter",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
           ],

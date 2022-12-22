@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "function (startTime, endTime, listLeaveRequestRequestOrAccept) {\n  const isValid = Utils.isValidateLeaveRequestTime(startTime, endTime, listLeaveRequestRequestOrAccept);\n  if (isValid) {\n    return `Are you sure to request leave ${totalDayE.text} days from ${startTimeE.selectedDate} to ${endTimeE.selectedDate}`;\n  } else {\n    return `You are already request leave at this time`;\n  }\n}",
+      "body": "function (startTime, endTime, listLeaveRequestRequestOrAccept) {\n  const isValid = Utils.isValidateLeaveRequestTime(startTime, endTime, listLeaveRequestRequestOrAccept);\n  if (isValid) {\n    return `Are you sure to request leave ${totalDayE.text} days from ${Utils.formatStartTime(startTimeE.selectedDate)} to ${Utils.formatEndTime(endTimeE.selectedDate)}`;\n  } else {\n    return `You are already request leave at this time`;\n  }\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {},
@@ -38,7 +38,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "function (startTime, endTime, listLeaveRequestRequestOrAccept) {\n  const isValid = Utils.isValidateLeaveRequestTime(startTime, endTime, listLeaveRequestRequestOrAccept);\n  if (isValid) {\n    return `Are you sure to request leave ${totalDayE.text} days from ${startTimeE.selectedDate} to ${endTimeE.selectedDate}`;\n  } else {\n    return `You are already request leave at this time`;\n  }\n}"
+      "function (startTime, endTime, listLeaveRequestRequestOrAccept) {\n  const isValid = Utils.isValidateLeaveRequestTime(startTime, endTime, listLeaveRequestRequestOrAccept);\n  if (isValid) {\n    return `Are you sure to request leave ${totalDayE.text} days from ${Utils.formatStartTime(startTimeE.selectedDate)} to ${Utils.formatEndTime(endTimeE.selectedDate)}`;\n  } else {\n    return `You are already request leave at this time`;\n  }\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

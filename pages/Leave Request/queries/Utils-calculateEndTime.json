@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  const hasHalfDay = totalDay - Math.floor(totalDay) > 0;\n  if (Math.floor(totalDay) >= 1) {\n    startTimeMoment.add((Math.floor(totalDay) - 1) * 24 + 8, 'hour');\n  }\n  if (hasHalfDay) {\n    startTimeMoment.add(5, 'hour');\n  }\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}",
+      "body": "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  const hasHalfDay = totalDay - Math.floor(totalDay) > 0;\n  if (Math.floor(totalDay) >= 1) {\n    if (startTimeMoment.hours() === 12) {\n      startTimeMoment.add(Math.floor(totalDay) * 24, 'hour');\n    } else {\n      startTimeMoment.add((Math.floor(totalDay) - 1) * 24 + 8, 'hour');\n    }\n  }\n  if (hasHalfDay) {\n    startTimeMoment.add(5, 'hour');\n  }\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {},
@@ -38,7 +38,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  const hasHalfDay = totalDay - Math.floor(totalDay) > 0;\n  if (Math.floor(totalDay) >= 1) {\n    startTimeMoment.add((Math.floor(totalDay) - 1) * 24 + 8, 'hour');\n  }\n  if (hasHalfDay) {\n    startTimeMoment.add(5, 'hour');\n  }\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}"
+      "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  const hasHalfDay = totalDay - Math.floor(totalDay) > 0;\n  if (Math.floor(totalDay) >= 1) {\n    if (startTimeMoment.hours() === 12) {\n      startTimeMoment.add(Math.floor(totalDay) * 24, 'hour');\n    } else {\n      startTimeMoment.add((Math.floor(totalDay) - 1) * 24 + 8, 'hour');\n    }\n  }\n  if (hasHalfDay) {\n    startTimeMoment.add(5, 'hour');\n  }\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

@@ -42,7 +42,7 @@
           "data": ""
         },
         "rowObjects": {
-          "data": "{\"Email\":{{appsmith.user.email}},\n \"Start Date\":{{Utils.formatStartTime(startTimeE.selectedDate) }},\n \"End Date\":{{Utils.formatEndTime(endTimeE.selectedDate) }},\n \"Total\":{{parseFloat(totalDayE.text) }},\n \"Reason\":{{reasonE.text}},\n \"Supporter\":{{supporterE.selectedOptionValue}},\n \"Status\":\"REQUESTED\"\n}"
+          "data": "{\n\t\"Full Name\":{{appsmith.user.name}},\n\t\"Email\":{{appsmith.user.email}},\n \"Start Date\":{{Utils.formatStartTime(startTimeE.selectedDate) }},\n \"End Date\":{{Utils.formatEndTime(endTimeE.selectedDate) }},\n \"Total Days\":{{parseFloat(totalDayE.text) }},\n \"Reason\":{{reasonE.text}},\n \"Supporter\":{{supporterE.selectedOptionValue}},\n \"Status\":\"REQUESTED\"\n}"
         },
         "sheetName": {
           "componentData": "Leave Requests",
@@ -82,6 +82,7 @@
       "Utils.formatEndTime(endTimeE.selectedDate) ",
       "Utils.formatStartTime(startTimeE.selectedDate) ",
       "appsmith.user.email",
+      "appsmith.user.name",
       "parseFloat(totalDayE.text) ",
       "reasonE.text",
       "supporterE.selectedOptionValue"
