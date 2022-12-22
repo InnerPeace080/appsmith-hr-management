@@ -1,0 +1,23 @@
+{
+  "pages": [
+    {
+      "id": "Leave Request",
+      "isDefault": true
+    },
+    {
+      "id": "Manage Leave Request",
+      "isDefault": false
+    }
+  ],
+  "viewMode": false,
+  "appIsExample": false,
+  "unreadCommentThreads": 0,
+  "color": "#D9E7FF",
+  "unpublishedAppLayout": {
+    "type": "MOBILE"
+  },
+  "evaluationVersion": 2,
+  "applicationVersion": 2,
+  "isManualUpdate": false,
+  "deleted": false
+}

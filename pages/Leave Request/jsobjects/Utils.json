@@ -1,0 +1,25 @@
+{
+  "unpublishedCollection": {
+    "name": "Utils",
+    "pageId": "Leave Request",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tmyVar1: [],\n\tstorage: {\n\t\tstartTime:moment().toLocaleString()\n\t},\n\tformatStartTime:(startTimeString)=>{\n\t\tconst startTimeMoment = moment(startTimeString)\n\t\t\n\t\tlet hourToSet=8;\n\t\tif(startTimeMoment.hours()>=12) hourToSet=12\n\t\tstartTimeMoment.set({hour:hourToSet, minute:0,second:0,milisecond:0})\n\t\t\n\t\treturn startTimeMoment.toLocaleString()\n\t},\n\tformatEndTime:(endTimeString)=>{\n\t\tconst timeMoment = moment(endTimeString)\n\t\tlet hourToSet=18;\n\t\tif(timeMoment.hours()<=13) hourToSet=12\n\t\ttimeMoment.set({hour:hourToSet, minute:0,second:0,milisecond:0})\n\t\t\n\t\treturn timeMoment.toLocaleString()\n\t},\n\tcalculateEndTime: (startTimeString,totalDay) => {\n\t\tconst startTimeMoment=moment(this.formatStartTime(startTimeString))\n\t\tconst hasHalfDay = (totalDay-Math.floor(totalDay))>0\n\t\tif(Math.floor(totalDay)>=1){\n\t\t\tstartTimeMoment.add( (Math.floor(totalDay)-1) * 24 + 8,'hour')\n\t\t}\n\t\tif(hasHalfDay){\n\t\t\tstartTimeMoment.add(5,'hour')\n\t\t}\n\t\treturn this.formatEndTime(startTimeMoment.toLocaleString())\n\t},\n\tmyFun2: async () => {\n\t\t//use async-await or promises\n\t\t\n\t\t\n\t\t\n\t}\n}",
+    "variables": [
+      {
+        "name": "myVar1",
+        "value": "[]"
+      },
+      {
+        "name": "storage",
+        "value": "{\n  startTime: moment().toLocaleString()\n}"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Leave Request_Utils",
+  "deleted": false,
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a2e0b76a0d0c01bfb01aed"
+}
