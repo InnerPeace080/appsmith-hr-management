@@ -120,7 +120,7 @@
                       "key": "r3zwv439wl",
                       "labelTextSize": "0.875rem",
                       "isRequired": false,
-                      "defaultDate": "{{Utils.calculateEndTime(startTimeE.selectedDate,parseFloat(totalDayE.inputText))}}",
+                      "defaultDate": "{{Utils.calculateEndTime(startTimeE.selectedDate, parseFloat(totalDayE.text))}}",
                       "isDeprecated": false,
                       "rightColumn": 32,
                       "dynamicHeight": "FIXED",
@@ -1518,16 +1518,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Leave Request_listSupporter",
-              "name": "listSupporter",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
               "id": "Leave Request_getMe",
               "name": "getMe",
               "confirmBeforeExecute": false,
@@ -1535,6 +1525,14 @@
               "jsonPathKeys": [
                 "appsmith.user.email"
               ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "Leave Request_listSupporter",
+              "name": "listSupporter",
+              "confirmBeforeExecute": false,
+              "pluginType": "SAAS",
+              "jsonPathKeys": [],
               "timeoutInMillisecond": 10000
             }
           ],

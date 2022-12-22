@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  const hasHalfDay = totalDay - Math.floor(totalDay) > 0;\n  if (Math.floor(totalDay) >= 1) {\n    if (startTimeMoment.hours() === 12) {\n      startTimeMoment.add(Math.floor(totalDay) * 24, 'hour');\n    } else {\n      startTimeMoment.add((Math.floor(totalDay) - 1) * 24 + 8, 'hour');\n    }\n  }\n  if (hasHalfDay) {\n    startTimeMoment.add(5, 'hour');\n  }\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}",
+      "body": "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  if (startTimeMoment.hours() !== 12) {\n    startTimeMoment.set({\n      hour: 0\n    });\n  }\n  let halfDayCounter = totalDay / 0.5;\n  while (halfDayCounter > 0) {\n    if (startTimeMoment.day() === 0 || startTimeMoment.day() === 6 && startTimeMoment.hours() === 12) {\n      startTimeMoment.add({\n        hour: 12\n      });\n      continue;\n    }\n    startTimeMoment.add({\n      hour: 12\n    });\n    halfDayCounter -= 1;\n  }\n  startTimeMoment.subtract(1, 'hour');\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {},
@@ -38,7 +38,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  const hasHalfDay = totalDay - Math.floor(totalDay) > 0;\n  if (Math.floor(totalDay) >= 1) {\n    if (startTimeMoment.hours() === 12) {\n      startTimeMoment.add(Math.floor(totalDay) * 24, 'hour');\n    } else {\n      startTimeMoment.add((Math.floor(totalDay) - 1) * 24 + 8, 'hour');\n    }\n  }\n  if (hasHalfDay) {\n    startTimeMoment.add(5, 'hour');\n  }\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}"
+      "(startTimeString, totalDay) => {\n  const startTimeMoment = moment(Utils.formatStartTime(startTimeString));\n  if (startTimeMoment.hours() !== 12) {\n    startTimeMoment.set({\n      hour: 0\n    });\n  }\n  let halfDayCounter = totalDay / 0.5;\n  while (halfDayCounter > 0) {\n    if (startTimeMoment.day() === 0 || startTimeMoment.day() === 6 && startTimeMoment.hours() === 12) {\n      startTimeMoment.add({\n        hour: 12\n      });\n      continue;\n    }\n    startTimeMoment.add({\n      hour: 12\n    });\n    halfDayCounter -= 1;\n  }\n  startTimeMoment.subtract(1, 'hour');\n  return Utils.formatEndTime(startTimeMoment.toLocaleString());\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
