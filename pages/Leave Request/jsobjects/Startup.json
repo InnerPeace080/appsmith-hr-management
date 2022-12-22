@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "Startup",
+    "pageId": "Leave Request",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tcreateLeaveRequestSheetForMonth: async () => {\n\t\t//use async-await or promises\n\t\t//await getLeaveRequestSpreadsheet.run()\n\t\tconst spreadsheetData = getLeaveRequestSpreadsheet.data\n\t\tconst currentMonthTitle = moment().format('YYYY-MMM')\n\t\tif(!spreadsheetData.sheets.find((sheet)=>sheet.title===currentMonthTitle)){\n\t\t\tawait addLeaveRequestsSheet.run({title:currentMonthTitle})\n\t\t\tawait initTitleLeaveRequestSheet.run({sheet:currentMonthTitle})\n\t\t}\n\t\t\n\t\tconst nextMonthTitle = moment().add(1,'months').format('YYYY-MMM')\n\t\tif(!spreadsheetData.sheets.find((sheet)=>sheet.title===nextMonthTitle)){\n\t\t\tawait addLeaveRequestsSheet.run({title:nextMonthTitle})\n\t\t\tawait initTitleLeaveRequestSheet.run({sheet:nextMonthTitle})\n\t\t}\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Leave Request_Startup",
+  "deleted": false,
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a42d6a6a0d0c01bfb03148"
+}
