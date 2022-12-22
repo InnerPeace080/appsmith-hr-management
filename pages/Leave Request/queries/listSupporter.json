@@ -2,7 +2,7 @@
   "pluginType": "SAAS",
   "pluginId": "google-sheets-plugin",
   "unpublishedAction": {
-    "name": "getLeavesRequested",
+    "name": "listSupporter",
     "datasource": {
       "name": "Phuong Driver",
       "pluginId": "google-sheets-plugin",
@@ -33,7 +33,10 @@
           }
         },
         "projection": {
-          "data": []
+          "data": [
+            "Full Name",
+            "Email"
+          ]
         },
         "queryFormat": {
           "data": "ROWS"
@@ -42,15 +45,10 @@
           "data": ""
         },
         "sheetName": {
-          "data": "Leave Requests",
-          "componentData": "Leave Requests",
-          "viewType": "json"
+          "data": "Users"
         },
         "sheetUrl": {
-          "data": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit",
-          "componentData": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit",
-          "viewType": "component",
-          "jsonData": ""
+          "data": "https://docs.google.com/spreadsheets/d/134cBe0yG-FVeE8csTitAMRCK7Nk3a5ZT-wg5L-wdsJ4/edit"
         },
         "smartSubstitution": {
           "data": true
@@ -62,6 +60,9 @@
               "order": "Ascending"
             }
           ]
+        },
+        "spreadsheetName": {
+          "data": "afdsd"
         },
         "tableHeaderIndex": {
           "data": "1"
@@ -78,18 +79,18 @@
         }
       }
     },
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "dynamicBindingPathList": [],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [],
-    "userSetOnLoad": false,
+    "userSetOnLoad": true,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Leave Request_getLeavesRequested",
+  "id": "Leave Request_listSupporter",
   "deleted": false,
-  "gitSyncId": "63a05b5f4f35af560dc135d6_63a05f5d4f35af560dc13625"
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a1d36e7b3ff97723bf0054"
 }

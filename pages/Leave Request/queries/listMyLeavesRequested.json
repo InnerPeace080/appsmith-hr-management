@@ -2,7 +2,7 @@
   "pluginType": "SAAS",
   "pluginId": "google-sheets-plugin",
   "unpublishedAction": {
-    "name": "Api1",
+    "name": "listMyLeavesRequested",
     "datasource": {
       "name": "Phuong Driver",
       "pluginId": "google-sheets-plugin",
@@ -21,10 +21,10 @@
       "selfReferencingDataPaths": [],
       "formData": {
         "command": {
-          "data": "FETCH_DETAILS"
+          "data": "FETCH_MANY"
         },
         "entityType": {
-          "data": "SPREADSHEET"
+          "data": "ROWS"
         },
         "pagination": {
           "data": {
@@ -41,37 +41,63 @@
         "range": {
           "data": ""
         },
+        "sheetName": {
+          "data": "Leave Requests",
+          "componentData": "Leave Requests",
+          "viewType": "json"
+        },
         "sheetUrl": {
-          "data": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit"
+          "data": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit",
+          "componentData": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit",
+          "viewType": "component",
+          "jsonData": ""
         },
         "smartSubstitution": {
           "data": true
         },
-        "spreadsheetName": {
-          "data": "afdsd"
+        "sortBy": {
+          "data": [
+            {
+              "column": "",
+              "order": "Ascending"
+            }
+          ]
         },
         "tableHeaderIndex": {
           "data": "1"
         },
         "where": {
           "data": {
-            "condition": "AND"
+            "condition": "AND",
+            "children": [
+              {
+                "condition": "EQ",
+                "key": "Email",
+                "value": "{{appsmith.user.email}}"
+              }
+            ]
           }
         }
       }
     },
-    "executeOnLoad": false,
-    "dynamicBindingPathList": [],
+    "executeOnLoad": true,
+    "dynamicBindingPathList": [
+      {
+        "key": "formData.where.data.children[0].value"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [],
+    "jsonPathKeys": [
+      "appsmith.user.email"
+    ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Leave Request_Api1",
+  "id": "Leave Request_listMyLeavesRequested",
   "deleted": false,
-  "gitSyncId": "63a05b5f4f35af560dc135d6_63a1d36e7b3ff97723bf0054"
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a05f5d4f35af560dc13625"
 }
