@@ -956,7 +956,7 @@
                       "resetFormOnClick": false,
                       "boxShadow": "none",
                       "widgetName": "confirmM",
-                      "onClick": "{{requestLeave.run(() => closeModal('confirmModal'), () => showAlert('Error','error'))}}",
+                      "onClick": "{{createRequestLeave.run(() => closeModal('confirmModal'), () => showAlert('Error','error'))}}",
                       "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
                       "dynamicPropertyPathList": [
                         {

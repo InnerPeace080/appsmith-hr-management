@@ -2,7 +2,7 @@
   "pluginType": "SAAS",
   "pluginId": "google-sheets-plugin",
   "unpublishedAction": {
-    "name": "requestLeave",
+    "name": "createRequestLeave",
     "datasource": {
       "name": "Phuong Driver",
       "pluginId": "google-sheets-plugin",
@@ -42,7 +42,7 @@
           "data": ""
         },
         "rowObjects": {
-          "data": "{\n\t\"Full Name\":{{appsmith.user.name}},\n\t\"Email\":{{appsmith.user.email}},\n \"Start Date\":{{Utils.formatStartTime(startTimeE.selectedDate) }},\n \"End Date\":{{Utils.formatEndTime(endTimeE.selectedDate) }},\n \"Total Days\":{{parseFloat(totalDayE.text) }},\n \"Reason\":{{reasonE.text}},\n \"Supporter\":{{supporterE.selectedOptionValue}},\n \"Status\":\"REQUESTED\"\n}"
+          "data": "{\n\t\"Full Name\":{{appsmith.user.name}},\n\t\"Email\":{{appsmith.user.email}},\n \"Start Date\":{{Utils.formatStartTime(startTimeE.selectedDate)  }},\n \"End Date\":{{Utils.formatEndTime(endTimeE.selectedDate)  }},\n \"Total Days\":{{parseFloat(totalDayE.text) }},\n \"Reason\":{{reasonE.text}},\n \"Supporter\":{{supporterE.selectedOptionValue}},\n \"Status\":\"REQUESTED\"\n}"
         },
         "sheetName": {
           "componentData": "Leave Requests",
@@ -79,8 +79,8 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "Utils.formatEndTime(endTimeE.selectedDate) ",
-      "Utils.formatStartTime(startTimeE.selectedDate) ",
+      "Utils.formatEndTime(endTimeE.selectedDate)  ",
+      "Utils.formatStartTime(startTimeE.selectedDate)  ",
       "appsmith.user.email",
       "appsmith.user.name",
       "parseFloat(totalDayE.text) ",
@@ -92,7 +92,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Leave Request_requestLeave",
+  "id": "Leave Request_createRequestLeave",
   "deleted": false,
   "gitSyncId": "63a05b5f4f35af560dc135d6_63a1d1c57b3ff97723bf0039"
 }
