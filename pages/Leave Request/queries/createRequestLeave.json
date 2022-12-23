@@ -46,8 +46,8 @@
         },
         "sheetName": {
           "componentData": "Leave Requests",
-          "data": "Leave Requests",
-          "viewType": "component",
+          "data": "{{moment().format('YYYY')}}",
+          "viewType": "json",
           "jsonData": ""
         },
         "sheetUrl": {
@@ -73,6 +73,9 @@
     "dynamicBindingPathList": [
       {
         "key": "formData.rowObjects.data"
+      },
+      {
+        "key": "formData.sheetName.data"
       }
     ],
     "isValid": true,
@@ -83,6 +86,7 @@
       "Utils.formatStartTime(startTimeE.selectedDate)  ",
       "appsmith.user.email",
       "appsmith.user.name",
+      "moment().format('YYYY')",
       "moment().toLocaleString()",
       "parseFloat(totalDayE.text) ",
       "reasonE.text",

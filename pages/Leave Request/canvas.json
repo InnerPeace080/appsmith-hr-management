@@ -359,7 +359,7 @@
                     {
                       "boxShadow": "none",
                       "widgetName": "startTimeE",
-                      "minDate": "{{moment().set({hour:8,minute:0})}}",
+                      "minDate": "{{moment().set({hour:0,minute:0})}}",
                       "dateFormat": "YYYY-MM-DD HH:mm",
                       "dynamicPropertyPathList": [
                         {
@@ -1530,6 +1530,16 @@
         "layoutOnLoadActions": [
           [
             {
+              "id": "Leave Request_getMe",
+              "name": "getMe",
+              "confirmBeforeExecute": false,
+              "pluginType": "SAAS",
+              "jsonPathKeys": [
+                "appsmith.user.email"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
               "id": "Leave Request_listSupporter",
               "name": "listSupporter",
               "confirmBeforeExecute": false,
@@ -1550,37 +1560,26 @@
           ],
           [
             {
+              "id": "Leave Request_listMyLeavesRequested",
+              "name": "listMyLeavesRequested",
+              "confirmBeforeExecute": false,
+              "pluginType": "SAAS",
+              "jsonPathKeys": [
+                "appsmith.user.email",
+                "moment().format('YYYY')"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
               "id": "Leave Request_Startup.createLeaveRequestSheetForMonth",
               "name": "Startup.createLeaveRequestSheetForMonth",
               "collectionId": "Leave Request_Startup",
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentMonthTitle = moment().format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentMonthTitle\n    });\n  }\n  const nextMonthTitle = moment().add(1, 'months').format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextMonthTitle\n    });\n  }\n}"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Leave Request_getMe",
-              "name": "getMe",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [
-                "appsmith.user.email"
-              ],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Leave Request_listMyLeavesRequested",
-              "name": "listMyLeavesRequested",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [
-                "appsmith.user.email"
+                "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentTitle = moment().format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'years').format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }

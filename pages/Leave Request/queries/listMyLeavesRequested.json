@@ -42,9 +42,10 @@
           "data": ""
         },
         "sheetName": {
-          "data": "Leave Requests",
+          "data": "{{moment().format('YYYY')}}",
           "componentData": "Leave Requests",
-          "viewType": "json"
+          "viewType": "json",
+          "jsonData": ""
         },
         "sheetUrl": {
           "data": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit",
@@ -84,13 +85,17 @@
     "dynamicBindingPathList": [
       {
         "key": "formData.where.data.children[0].value"
+      },
+      {
+        "key": "formData.sheetName.data"
       }
     ],
     "isValid": true,
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "appsmith.user.email"
+      "appsmith.user.email",
+      "moment().format('YYYY')"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentMonthTitle = moment().format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentMonthTitle\n    });\n  }\n  const nextMonthTitle = moment().add(1, 'months').format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextMonthTitle\n    });\n  }\n}",
+      "body": "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentTitle = moment().format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'years').format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextTitle\n    });\n  }\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
       "isAsync": true
@@ -34,7 +34,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentMonthTitle = moment().format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentMonthTitle\n    });\n  }\n  const nextMonthTitle = moment().add(1, 'months').format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextMonthTitle\n    });\n  }\n}"
+      "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentTitle = moment().format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'years').format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
     ],
     "userSetOnLoad": true,
     "confirmBeforeExecute": false,
