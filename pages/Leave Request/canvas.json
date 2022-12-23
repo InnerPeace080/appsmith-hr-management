@@ -359,7 +359,7 @@
                     {
                       "boxShadow": "none",
                       "widgetName": "startTimeE",
-                      "minDate": "1920-12-31T18:30:00.000Z",
+                      "minDate": "{{moment().set({hour:8,minute:0})}}",
                       "dateFormat": "YYYY-MM-DD HH:mm",
                       "dynamicPropertyPathList": [
                         {
@@ -367,6 +367,12 @@
                         },
                         {
                           "key": "onDateSelected"
+                        },
+                        {
+                          "key": "minDate"
+                        },
+                        {
+                          "key": "maxDate"
                         }
                       ],
                       "displayName": "DatePicker",
@@ -398,6 +404,12 @@
                         },
                         {
                           "key": "defaultDate"
+                        },
+                        {
+                          "key": "minDate"
+                        },
+                        {
+                          "key": "maxDate"
                         }
                       ],
                       "labelPosition": "Top",
@@ -425,7 +437,7 @@
                       "maxDynamicHeight": 9000,
                       "firstDayOfWeek": "0",
                       "closeOnSelection": true,
-                      "maxDate": "2121-12-31T18:29:00.000Z",
+                      "maxDate": "{{moment().add(1,'year').set({month:0,date:1,hour:0,minute:0,second:0}).subtract(1,'minute')}}",
                       "minDynamicHeight": 4
                     },
                     {
@@ -1518,16 +1530,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Leave Request_getMe",
-              "name": "getMe",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [
-                "appsmith.user.email"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Leave Request_listSupporter",
               "name": "listSupporter",
               "confirmBeforeExecute": false,
@@ -1548,8 +1550,21 @@
           ],
           [
             {
-              "id": "Leave Request_listMyLeavesRequested",
-              "name": "listMyLeavesRequested",
+              "id": "Leave Request_Startup.createLeaveRequestSheetForMonth",
+              "name": "Startup.createLeaveRequestSheetForMonth",
+              "collectionId": "Leave Request_Startup",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentMonthTitle = moment().format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentMonthTitle\n    });\n  }\n  const nextMonthTitle = moment().add(1, 'months').format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextMonthTitle\n    });\n  }\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Leave Request_getMe",
+              "name": "getMe",
               "confirmBeforeExecute": false,
               "pluginType": "SAAS",
               "jsonPathKeys": [
@@ -1560,13 +1575,12 @@
           ],
           [
             {
-              "id": "Leave Request_Startup.createLeaveRequestSheetForMonth",
-              "name": "Startup.createLeaveRequestSheetForMonth",
-              "collectionId": "Leave Request_Startup",
+              "id": "Leave Request_listMyLeavesRequested",
+              "name": "listMyLeavesRequested",
               "confirmBeforeExecute": false,
-              "pluginType": "JS",
+              "pluginType": "SAAS",
               "jsonPathKeys": [
-                "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentMonthTitle = moment().format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentMonthTitle\n    });\n  }\n  const nextMonthTitle = moment().add(1, 'months').format('YYYY-MMM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextMonthTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextMonthTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextMonthTitle\n    });\n  }\n}"
+                "appsmith.user.email"
               ],
               "timeoutInMillisecond": 10000
             }
