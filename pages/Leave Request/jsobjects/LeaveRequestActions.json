@@ -6,7 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "body": "export default {\n\tcreateLeaveRequest: async () => {\n\t\tawait createRequestLeave.run()\n\t\t//@todo send email\n\t\t\n\t\t// close modal when success\n\t\tcloseModal(\"confirmModal\")\n\t}\n}",
+    "body": "export default {\n\tcreateLeaveRequest: async () => {\n\t\tawait createRequestLeave.run()\n\t\t\n\t\t// get email of user have permission to approve or reject request\n\t\t\n\t\t// send email\n\t\t// await sendEmail.run({toEmail:})\n\t\t\n\t\t\n\t\t// close modal when success\n\t\tcloseModal(\"confirmModal\")\n\t}\n}",
     "variables": [],
     "userPermissions": []
   },
