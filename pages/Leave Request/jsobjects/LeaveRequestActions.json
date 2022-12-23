@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "LeaveRequestActions",
+    "pageId": "Leave Request",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tcreateLeaveRequest: async () => {\n\t\tawait createRequestLeave.run()\n\t\t//@todo send email\n\t\t\n\t\t// close modal when success\n\t\tcloseModal(\"confirmModal\")\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Leave Request_LeaveRequestActions",
+  "deleted": false,
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a554e7fcb7cc4992adaa2f"
+}
