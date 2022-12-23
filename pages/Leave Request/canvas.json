@@ -806,13 +806,13 @@
                   "widgetName": "Canvas3",
                   "displayName": "Canvas",
                   "topRow": 0,
-                  "bottomRow": 240,
+                  "bottomRow": 250,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
                   "canExtend": true,
                   "hideCard": true,
                   "shouldScrollContents": false,
-                  "minHeight": 240,
+                  "minHeight": 260,
                   "parentColumnSpace": 1,
                   "leftColumn": 0,
                   "dynamicBindingPathList": [],
@@ -1111,7 +1111,7 @@
               "onClose": "{{listMyLeavesRequested.run()}}",
               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
               "maxDynamicHeight": 9000,
-              "width": 456,
+              "width": 427.5,
               "minDynamicHeight": 24
             },
             {
@@ -1530,16 +1530,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Leave Request_getMe",
-              "name": "getMe",
-              "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [
-                "appsmith.user.email"
-              ],
-              "timeoutInMillisecond": 10000
-            },
-            {
               "id": "Leave Request_listSupporter",
               "name": "listSupporter",
               "confirmBeforeExecute": false,
@@ -1550,11 +1540,14 @@
           ],
           [
             {
-              "id": "Leave Request_getLeaveRequestSpreadsheet",
-              "name": "getLeaveRequestSpreadsheet",
+              "id": "Leave Request_Startup.createLeaveRequestSheetForMonth",
+              "name": "Startup.createLeaveRequestSheetForMonth",
+              "collectionId": "Leave Request_Startup",
               "confirmBeforeExecute": false,
-              "pluginType": "SAAS",
-              "jsonPathKeys": [],
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "async () => {\n  await getLeaveRequestSpreadsheet.run();\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentTitle = moment().format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'years').format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
+              ],
               "timeoutInMillisecond": 10000
             }
           ],
@@ -1573,13 +1566,12 @@
           ],
           [
             {
-              "id": "Leave Request_Startup.createLeaveRequestSheetForMonth",
-              "name": "Startup.createLeaveRequestSheetForMonth",
-              "collectionId": "Leave Request_Startup",
+              "id": "Leave Request_getMe",
+              "name": "getMe",
               "confirmBeforeExecute": false,
-              "pluginType": "JS",
+              "pluginType": "SAAS",
               "jsonPathKeys": [
-                "async () => {\n  const spreadsheetData = getLeaveRequestSpreadsheet.data;\n  const currentTitle = moment().format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: currentTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'years').format('YYYY');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addLeaveRequestsSheet.run({\n      title: nextTitle\n    });\n    await initTitleLeaveRequestSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
+                "appsmith.user.email"
               ],
               "timeoutInMillisecond": 10000
             }
