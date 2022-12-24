@@ -81,6 +81,9 @@
                 },
                 {
                   "key": "primaryColumns.data.computedValue"
+                },
+                {
+                  "key": "isVisible"
                 }
               ],
               "leftColumn": 0,
@@ -88,7 +91,7 @@
               "defaultSelectedRowIndex": 0,
               "accentColor": "{{appsmith.theme.colors.primaryColor}}",
               "isVisibleFilters": true,
-              "isVisible": true,
+              "isVisible": "{{getMe.data[0].Role==='ADMIN'||getMe.data[0].Role==='MANAGER'}}",
               "enableClientSideSearch": true,
               "version": 1,
               "totalRecordsCount": 0,
@@ -131,7 +134,11 @@
                 "Action",
                 "data"
               ],
-              "dynamicPropertyPathList": [],
+              "dynamicPropertyPathList": [
+                {
+                  "key": "isVisible"
+                }
+              ],
               "compactMode": "DEFAULT",
               "displayName": "Table",
               "bottomRow": 70,
@@ -401,6 +408,18 @@
           ]
         },
         "layoutOnLoadActions": [
+          [
+            {
+              "id": "Manage Leave Request_getMe",
+              "name": "getMe",
+              "confirmBeforeExecute": false,
+              "pluginType": "SAAS",
+              "jsonPathKeys": [
+                "appsmith.user.email"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
           [
             {
               "id": "Manage Leave Request_listStaff",
