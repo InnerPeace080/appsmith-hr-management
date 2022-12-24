@@ -39,7 +39,7 @@
       "async leaveRequestData => {\n  await rejectLeaveRequest.run({\n    rowIndex: leaveRequestData.rowIndex,\n    reason: \"\"\n  });\n  sendEmailRequestRejected.run({\n    toEmail: leaveRequestData.Email\n  });\n  listLeaveRequested.run();\n}"
     ],
     "userSetOnLoad": false,
-    "confirmBeforeExecute": true,
+    "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },

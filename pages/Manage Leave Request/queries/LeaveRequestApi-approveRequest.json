@@ -40,7 +40,7 @@
       "async leaveRequestData => {\n  const userInfo = listStaff.data.find(c => c.Email === leaveRequestData.Email);\n  if (!userInfo) showAlert(`User ${userInfo.Email} is not existed`);\n  await updateLeaveCount.run({\n    rowIndex: userInfo.rowIndex,\n    availableLeave: userInfo['Available Leaves'] - leaveRequestData[\"Total Days\"],\n    leavesApplied: userInfo['Leaves Applied'] + leaveRequestData[\"Total Days\"]\n  });\n  await approveLeaveRequest.run({\n    rowIndex: leaveRequestData.rowIndex\n  });\n  sendEmailRequestApprove.run({\n    toEmail: leaveRequestData.Email\n  });\n  listStaff.run();\n  listLeaveRequested.run();\n}"
     ],
     "userSetOnLoad": false,
-    "confirmBeforeExecute": true,
+    "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
