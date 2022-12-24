@@ -14,10 +14,10 @@
   "unreadCommentThreads": 0,
   "color": "#D9E7FF",
   "unpublishedAppLayout": {
-    "type": "MOBILE"
+    "type": "TABLET"
   },
   "publishedAppLayout": {
-    "type": "TABLET"
+    "type": "MOBILE"
   },
   "evaluationVersion": 2,
   "applicationVersion": 2,

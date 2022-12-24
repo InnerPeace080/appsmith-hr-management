@@ -2,7 +2,7 @@
   "pluginType": "SAAS",
   "pluginId": "google-sheets-plugin",
   "unpublishedAction": {
-    "name": "cancelLeaveRequest",
+    "name": "rejectLeaveRequest",
     "datasource": {
       "name": "Phuong Driver",
       "pluginId": "google-sheets-plugin",
@@ -13,7 +13,7 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Leave Request",
+    "pageId": "Manage Leave Request",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -42,7 +42,7 @@
           "data": ""
         },
         "rowObjects": {
-          "data": "{\n\t\"rowIndex\":{{this.params.rowIndex}},\n\t\"Status\":\"CANCELLED\",\n\t\"Process by\":{{appsmith.user.email}},\n\t\"Process Time\":{{moment().toLocaleString()}}\n}"
+          "data": "{\n\t\"rowIndex\":{{this.params.rowIndex}},\n\t\"Status\":\"REJECTED\",\n\t\"Process by\":{{appsmith.user.email}},\n\t\"Process Time\":{{moment().toLocaleString()}},\n\t\"Process Reason\":{{this.params.reason}}\n}"
         },
         "sheetName": {
           "componentData": "",
@@ -81,6 +81,7 @@
       "appsmith.user.email",
       "moment().format('YYYY')",
       "moment().toLocaleString()",
+      "this.params.reason",
       "this.params.rowIndex"
     ],
     "userSetOnLoad": false,
@@ -88,7 +89,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Leave Request_cancelLeaveRequest",
+  "id": "Manage Leave Request_rejectLeaveRequest",
   "deleted": false,
-  "gitSyncId": "63a05b5f4f35af560dc135d6_63a6af87fcb7cc4992adbba5"
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a6c148647efb486b76f0ea"
 }

@@ -2,7 +2,7 @@
   "pluginType": "SAAS",
   "pluginId": "google-sheets-plugin",
   "unpublishedAction": {
-    "name": "cancelLeaveRequest",
+    "name": "updateLeaveCount",
     "datasource": {
       "name": "Phuong Driver",
       "pluginId": "google-sheets-plugin",
@@ -13,7 +13,7 @@
       "policies": [],
       "userPermissions": []
     },
-    "pageId": "Leave Request",
+    "pageId": "Manage Leave Request",
     "actionConfiguration": {
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
@@ -42,15 +42,13 @@
           "data": ""
         },
         "rowObjects": {
-          "data": "{\n\t\"rowIndex\":{{this.params.rowIndex}},\n\t\"Status\":\"CANCELLED\",\n\t\"Process by\":{{appsmith.user.email}},\n\t\"Process Time\":{{moment().toLocaleString()}}\n}"
+          "data": "{\n\t\"rowIndex\":{{this.params.rowIndex}},\n\t\"Avaiable Leaves\":{{listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Avaiable Leaves\"]||0 - this.params.leaveDays||0}},\n\t\"Leaves Applied\":{{listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Leaves Applied\"]||0 + this.params.leaveDays||0}}\n}"
         },
         "sheetName": {
-          "componentData": "",
-          "data": "{{moment().format('YYYY')}}",
-          "viewType": "json"
+          "data": "Users"
         },
         "sheetUrl": {
-          "data": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit"
+          "data": "https://docs.google.com/spreadsheets/d/134cBe0yG-FVeE8csTitAMRCK7Nk3a5ZT-wg5L-wdsJ4/edit"
         },
         "smartSubstitution": {
           "data": true
@@ -68,9 +66,6 @@
     "executeOnLoad": false,
     "dynamicBindingPathList": [
       {
-        "key": "formData.sheetName.data"
-      },
-      {
         "key": "formData.rowObjects.data"
       }
     ],
@@ -78,9 +73,8 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "appsmith.user.email",
-      "moment().format('YYYY')",
-      "moment().toLocaleString()",
+      "listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Avaiable Leaves\"]||0 - this.params.leaveDays||0",
+      "listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Leaves Applied\"]||0 + this.params.leaveDays||0",
       "this.params.rowIndex"
     ],
     "userSetOnLoad": false,
@@ -88,7 +82,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Leave Request_cancelLeaveRequest",
+  "id": "Manage Leave Request_updateLeaveCount",
   "deleted": false,
-  "gitSyncId": "63a05b5f4f35af560dc135d6_63a6af87fcb7cc4992adbba5"
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a6c3b5647efb486b76f107"
 }

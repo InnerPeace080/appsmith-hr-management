@@ -31,7 +31,7 @@
           "value": "USER_ENTERED"
         }
       ],
-      "body": "{\n\t\"values\":[[\"Email\",\"Full Name\",\"Code\",\t\"Start Date\",\t\"End Date\",\t\"Total Days\",\t\"Reason\",\t\"Supporter\",\t\"Approval\",\t\"Status\",\t\"Request Time\",\t\"Process Time\",\"Process Reason\"]]\n}",
+      "body": "{\n\t\"values\":[[\"Email\",\"Full Name\",\"Code\",\t\"Start Date\",\t\"End Date\",\t\"Total Days\",\t\"Reason\",\t\"Supporter\",\t\"Request Time\",\t\"Status\",\t\"Process by\",\t\"Process Time\",\"Process Reason\"]]\n}",
       "bodyFormData": [],
       "httpMethod": "PUT",
       "selfReferencingDataPaths": [],

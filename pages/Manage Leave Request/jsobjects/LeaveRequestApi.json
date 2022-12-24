@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "LeaveRequestApi",
+    "pageId": "Manage Leave Request",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tapproveRequest: async (leaveRequestData) => {\n\t\t// update Avaiable Leaves and Leaves Applied\n\t\tconst userInfo = listStaff.data.find(c=>c.Email===leaveRequestData.Email)\n\t\tif(!userInfo) showAlert(`User ${userInfo.Email} is not existed`)\n\t\tawait updateLeaveCount.run({\n\t\t\trowIndex:userInfo.rowIndex,\n\t\t\tleaveDays:leaveRequestData[\"Total Days\"]\n\t\t})\n\t\t\n\t\tawait approveLeaveRequest.run({\n\t\t\trowIndex: leaveRequestData.rowIndex\n\t\t})\n\t\tlistStaff.run()\n\t\tlistLeaveRequested.run()\n\t},\n\trejectRequest: async (leaveRequestData) => {\n\t\tawait rejectLeaveRequest.run({\n\t\t\trowIndex: leaveRequestData.rowIndex,\t\t\n\t\t\treason:\"\"\n\t\t})\n\t\tlistLeaveRequested.run()\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Manage Leave Request_LeaveRequestApi",
+  "deleted": false,
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a6c0bf647efb486b76f0d4"
+}
