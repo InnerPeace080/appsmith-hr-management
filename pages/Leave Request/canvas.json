@@ -806,13 +806,13 @@
                   "widgetName": "Canvas3",
                   "displayName": "Canvas",
                   "topRow": 0,
-                  "bottomRow": 250,
+                  "bottomRow": 240,
                   "parentRowSpace": 1,
                   "type": "CANVAS_WIDGET",
                   "canExtend": true,
                   "hideCard": true,
                   "shouldScrollContents": false,
-                  "minHeight": 260,
+                  "minHeight": 240,
                   "parentColumnSpace": 1,
                   "leftColumn": 0,
                   "dynamicBindingPathList": [],
@@ -924,8 +924,8 @@
                         "click",
                         "submit"
                       ],
-                      "topRow": 15,
-                      "bottomRow": 19,
+                      "topRow": 18,
+                      "bottomRow": 22,
                       "type": "BUTTON_WIDGET",
                       "hideCard": false,
                       "animateLoading": true,
@@ -981,8 +981,8 @@
                         "click",
                         "submit"
                       ],
-                      "topRow": 15,
-                      "bottomRow": 19,
+                      "topRow": 18,
+                      "bottomRow": 22,
                       "type": "BUTTON_WIDGET",
                       "hideCard": false,
                       "animateLoading": true,
@@ -1034,7 +1034,7 @@
                         "label"
                       ],
                       "topRow": 6,
-                      "bottomRow": 10,
+                      "bottomRow": 13,
                       "parentRowSpace": 10,
                       "type": "TEXT_WIDGET",
                       "hideCard": false,
@@ -1324,13 +1324,34 @@
                           "key": "tableData"
                         },
                         {
-                          "key": "primaryColumns.Start_Date.computedValue"
-                        },
-                        {
                           "key": "primaryColumns.Total_Days.computedValue"
                         },
                         {
                           "key": "primaryColumns.Status.computedValue"
+                        },
+                        {
+                          "key": "primaryColumns.Actions.computedValue"
+                        },
+                        {
+                          "key": "primaryColumns.Actions.buttonColor"
+                        },
+                        {
+                          "key": "primaryColumns.Actions.borderRadius"
+                        },
+                        {
+                          "key": "primaryColumns.Actions.boxShadow"
+                        },
+                        {
+                          "key": "primaryColumns.Actions.buttonLabel"
+                        },
+                        {
+                          "key": "primaryColumns.data.computedValue"
+                        },
+                        {
+                          "key": "primaryColumns.Start_Date.computedValue"
+                        },
+                        {
+                          "key": "primaryColumns.Actions.isDisabled"
                         }
                       ],
                       "leftColumn": 1,
@@ -1375,52 +1396,36 @@
                       "columnOrder": [
                         "Start_Date",
                         "Total_Days",
-                        "Status"
+                        "Status",
+                        "Actions",
+                        "data"
                       ],
-                      "dynamicPropertyPathList": [],
+                      "dynamicPropertyPathList": [
+                        {
+                          "key": "primaryColumns.Actions.isDisabled"
+                        }
+                      ],
                       "displayName": "Table",
                       "bottomRow": 48,
                       "columnWidthMap": {
                         "task": 245,
                         "step": 62,
                         "status": 75,
-                        "Start_Date": 190,
-                        "Total_Days": 89
+                        "Start_Date": 102,
+                        "Total_Days": 60,
+                        "Status": 107,
+                        "Actions": 85
                       },
                       "parentRowSpace": 10,
                       "hideCard": false,
                       "parentColumnSpace": 6.4921875,
-                      "dynamicTriggerPathList": [],
+                      "dynamicTriggerPathList": [
+                        {
+                          "key": "primaryColumns.Actions.onClick"
+                        }
+                      ],
                       "borderWidth": "1",
                       "primaryColumns": {
-                        "Start_Date": {
-                          "allowCellWrapping": false,
-                          "index": 0,
-                          "width": 150,
-                          "originalId": "Start Date",
-                          "id": "Start_Date",
-                          "alias": "Start Date",
-                          "horizontalAlignment": "LEFT",
-                          "verticalAlignment": "CENTER",
-                          "columnType": "text",
-                          "textColor": "",
-                          "textSize": "0.875rem",
-                          "fontStyle": "",
-                          "enableFilter": true,
-                          "enableSort": true,
-                          "isVisible": true,
-                          "isDisabled": false,
-                          "isCellEditable": false,
-                          "isEditable": false,
-                          "isCellVisible": true,
-                          "isDerived": false,
-                          "label": "Start Date",
-                          "isSaveVisible": true,
-                          "isDiscardVisible": true,
-                          "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Start Date\"]))}}",
-                          "validation": {},
-                          "cellBackground": ""
-                        },
                         "Total_Days": {
                           "allowCellWrapping": false,
                           "index": 1,
@@ -1442,7 +1447,7 @@
                           "isEditable": false,
                           "isCellVisible": true,
                           "isDerived": false,
-                          "label": "Total Days",
+                          "label": "Total",
                           "isSaveVisible": true,
                           "isDiscardVisible": true,
                           "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Total Days\"]))}}",
@@ -1476,6 +1481,96 @@
                           "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Status\"]))}}",
                           "validation": {},
                           "cellBackground": ""
+                        },
+                        "Actions": {
+                          "allowCellWrapping": false,
+                          "index": 3,
+                          "width": 150,
+                          "originalId": "Actions",
+                          "id": "Actions",
+                          "alias": "Actions",
+                          "horizontalAlignment": "LEFT",
+                          "verticalAlignment": "CENTER",
+                          "columnType": "button",
+                          "textColor": "",
+                          "textSize": "0.875rem",
+                          "fontStyle": "",
+                          "enableFilter": true,
+                          "enableSort": true,
+                          "isVisible": true,
+                          "isDisabled": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow.data.Status!=='REQUESTED'))}}",
+                          "isCellEditable": false,
+                          "isEditable": false,
+                          "isCellVisible": true,
+                          "isDerived": false,
+                          "label": "Actions",
+                          "isSaveVisible": true,
+                          "isDiscardVisible": true,
+                          "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Actions\"]))}}",
+                          "validation": {},
+                          "cellBackground": "",
+                          "buttonColor": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.colors.primaryColor))}}",
+                          "borderRadius": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( appsmith.theme.borderRadius.appBorderRadius))}}",
+                          "boxShadow": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( 'none'))}}",
+                          "customAlias": "",
+                          "buttonLabel": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( 'Cancel'))}}",
+                          "onClick": "{{LeaveRequestActions.cancelLeaveRequest(currentRow.data)}}"
+                        },
+                        "data": {
+                          "allowCellWrapping": false,
+                          "index": 5,
+                          "width": 150,
+                          "originalId": "data",
+                          "id": "data",
+                          "alias": "data",
+                          "horizontalAlignment": "LEFT",
+                          "verticalAlignment": "CENTER",
+                          "columnType": "text",
+                          "textColor": "",
+                          "textSize": "0.875rem",
+                          "fontStyle": "",
+                          "enableFilter": true,
+                          "enableSort": true,
+                          "isVisible": false,
+                          "isDisabled": false,
+                          "isCellEditable": false,
+                          "isEditable": false,
+                          "isCellVisible": true,
+                          "isDerived": false,
+                          "label": "data",
+                          "isSaveVisible": true,
+                          "isDiscardVisible": true,
+                          "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"data\"]))}}",
+                          "validation": {},
+                          "cellBackground": ""
+                        },
+                        "Start_Date": {
+                          "allowCellWrapping": false,
+                          "index": 1,
+                          "width": 150,
+                          "originalId": "Start Date",
+                          "id": "Start_Date",
+                          "alias": "Start Date",
+                          "horizontalAlignment": "LEFT",
+                          "verticalAlignment": "CENTER",
+                          "columnType": "text",
+                          "textColor": "",
+                          "textSize": "0.875rem",
+                          "fontStyle": "",
+                          "enableFilter": true,
+                          "enableSort": true,
+                          "isVisible": true,
+                          "isDisabled": false,
+                          "isCellEditable": false,
+                          "isEditable": false,
+                          "isCellVisible": true,
+                          "isDerived": false,
+                          "label": "Start Date",
+                          "isSaveVisible": true,
+                          "isDiscardVisible": true,
+                          "computedValue": "{{Table1.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"Start Date\"]))}}",
+                          "validation": {},
+                          "cellBackground": ""
                         }
                       },
                       "key": "9am5y6j1th",
@@ -1483,7 +1578,7 @@
                       "rightColumn": 63,
                       "textSize": "0.875rem",
                       "widgetId": "1ckjvfk1pa",
-                      "tableData": "{{listMyLeavesRequested.data.map((c)=>({\n\t\"Start Date\":c[\"Start Date\"],\n\t\"Total Days\":c['Total Days'],\n\t\"Status\":c[\"Status\"]\n}))}}",
+                      "tableData": "{{listMyLeavesRequested.data.map((c)=>({\n\t\"Start Date\":moment(c[\"Start Date\"]).format('DD/MM'),\n\t\"Total Days\":c['Total Days'],\n\t\"Status\":c[\"Status\"],\n\t\"Actions\":\"\",\n\t\"data\":c\n}))}}",
                       "label": "Data",
                       "searchKey": "",
                       "parentId": "1p4lqfzeae",

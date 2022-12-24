@@ -15,12 +15,13 @@
     },
     "pageId": "Leave Request",
     "actionConfiguration": {
+      "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
       "selfReferencingDataPaths": [],
       "formData": {
         "command": {
-          "data": "FETCH_MANY"
+          "data": "UPDATE_ONE"
         },
         "entityType": {
           "data": "ROWS"
@@ -40,6 +41,17 @@
         "range": {
           "data": ""
         },
+        "rowObjects": {
+          "data": "{\n\t\"rowIndex\":{{this.params.rowIndex}},\n\t\"Status\":\"CANCELLED\"\n}"
+        },
+        "sheetName": {
+          "componentData": "",
+          "data": "{{moment().format('YYYY')}}",
+          "viewType": "json"
+        },
+        "sheetUrl": {
+          "data": "https://docs.google.com/spreadsheets/d/1HpqVnNLGY2DzMUzyYCXqqp195PuWQfBwMYP8i9Rt8Vk/edit"
+        },
         "smartSubstitution": {
           "data": true
         },
@@ -54,10 +66,21 @@
       }
     },
     "executeOnLoad": false,
+    "dynamicBindingPathList": [
+      {
+        "key": "formData.sheetName.data"
+      },
+      {
+        "key": "formData.rowObjects.data"
+      }
+    ],
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "jsonPathKeys": [],
+    "jsonPathKeys": [
+      "moment().format('YYYY')",
+      "this.params.rowIndex"
+    ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
