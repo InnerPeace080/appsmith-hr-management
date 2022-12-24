@@ -59,8 +59,8 @@
         "sortBy": {
           "data": [
             {
-              "column": "",
-              "order": "Ascending"
+              "column": "Request Time",
+              "order": "Descending"
             }
           ]
         },
