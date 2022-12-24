@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "async leaveRequestData => {\n  await rejectLeaveRequest.run({\n    rowIndex: leaveRequestData.rowIndex,\n    reason: \"\"\n  });\n  listLeaveRequested.run();\n}",
+      "body": "async leaveRequestData => {\n  await rejectLeaveRequest.run({\n    rowIndex: leaveRequestData.rowIndex,\n    reason: \"\"\n  });\n  sendEmailRequestRejected.run({\n    toEmail: leaveRequestData.Email\n  });\n  listLeaveRequested.run();\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [
         {}
@@ -36,7 +36,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "async leaveRequestData => {\n  await rejectLeaveRequest.run({\n    rowIndex: leaveRequestData.rowIndex,\n    reason: \"\"\n  });\n  listLeaveRequested.run();\n}"
+      "async leaveRequestData => {\n  await rejectLeaveRequest.run({\n    rowIndex: leaveRequestData.rowIndex,\n    reason: \"\"\n  });\n  sendEmailRequestRejected.run({\n    toEmail: leaveRequestData.Email\n  });\n  listLeaveRequested.run();\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": true,

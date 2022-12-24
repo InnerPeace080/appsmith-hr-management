@@ -42,7 +42,7 @@
           "data": ""
         },
         "rowObjects": {
-          "data": "{\n\t\"rowIndex\":{{this.params.rowIndex}},\n\t\"Avaiable Leaves\":{{listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Avaiable Leaves\"]||0 - this.params.leaveDays||0}},\n\t\"Leaves Applied\":{{listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Leaves Applied\"]||0 + this.params.leaveDays||0}}\n}"
+          "data": "{\n\t\"rowIndex\":{{this.params.rowIndex}},\n\t\"Available Leaves\":{{this.params.availableLeave}},\n\t\"Leaves Applied\":{{this.params.leavesApplied}}\n}"
         },
         "sheetName": {
           "data": "Users"
@@ -73,8 +73,8 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Avaiable Leaves\"]||0 - this.params.leaveDays||0",
-      "listStaff.data.find(c=>c.rowIndex===this.params.rowIndex)?.[\"Leaves Applied\"]||0 + this.params.leaveDays||0",
+      "this.params.availableLeave",
+      "this.params.leavesApplied",
       "this.params.rowIndex"
     ],
     "userSetOnLoad": false,
