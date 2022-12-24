@@ -666,7 +666,7 @@
                       ],
                       "labelPosition": "Top",
                       "options": "{{listSupporter.data.map((suppoter)=>({\n\tlabel:suppoter.Email,\n\tvalue:suppoter.Email,\n}))}}",
-                      "placeholderText": "Select option",
+                      "placeholderText": "Select supporter",
                       "isDisabled": false,
                       "key": "jesswmgub1",
                       "labelTextSize": "0.875rem",
@@ -957,10 +957,10 @@
                       "parentId": "9p4v52to8m",
                       "renderMode": "CANVAS",
                       "isLoading": false,
-                      "originalTopRow": 15,
+                      "originalTopRow": 18,
                       "disabledWhenInvalid": false,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                      "originalBottomRow": 19,
+                      "originalBottomRow": 22,
                       "buttonVariant": "SECONDARY",
                       "placement": "CENTER"
                     },
@@ -1017,10 +1017,10 @@
                       "parentId": "9p4v52to8m",
                       "renderMode": "CANVAS",
                       "isLoading": false,
-                      "originalTopRow": 15,
+                      "originalTopRow": 18,
                       "disabledWhenInvalid": false,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                      "originalBottomRow": 19,
+                      "originalBottomRow": 22,
                       "buttonVariant": "PRIMARY",
                       "placement": "CENTER"
                     },
@@ -1077,7 +1077,7 @@
                       "originalTopRow": 6,
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
-                      "originalBottomRow": 10,
+                      "originalBottomRow": 13,
                       "fontSize": "1rem",
                       "minDynamicHeight": 4
                     }
