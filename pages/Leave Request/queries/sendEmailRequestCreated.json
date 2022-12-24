@@ -18,7 +18,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "Dear boss.\n\n{{'\\r\\n'}}\n\n{{appsmith.user.name}} (email {{appsmith.user.email}}) request to leave in {{totalDayE.text}} days, \nfrom {{Utils.formatStartTime(startTimeE.selectedDate)}} to {{Utils.formatStartTime(endTimeE.selectedDate)}}.\n\n{{'\\r\\n'}}\n\nPlease goto this link to approve or reject leave request.\n\n{{'\\r\\n'}}\n\nThank you.",
+      "body": "Dear boss.\n\n{{'\\r\\n'}}\n\n{{appsmith.user.name}} (email {{appsmith.user.email}}) request to leave in {{totalDayE.text}} days, \nfrom {{Utils.formatStartTime(startTimeE.selectedDate)}} to {{Utils.formatStartTime(endTimeE.selectedDate)}}.\n\n{{'\\r\\n'}}\n\nPlease goto this link to approve or reject leave request.\n\nhttps://app.appsmith.com/app/hr-management/manage-leave-request-63a0796b749a014ec6e56c3b\n\n{{'\\r\\n'}}\n\nThank you.",
       "selfReferencingDataPaths": [],
       "formData": {
         "command": "SEND",
