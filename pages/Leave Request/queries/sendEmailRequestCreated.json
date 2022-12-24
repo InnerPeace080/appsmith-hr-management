@@ -2,7 +2,7 @@
   "pluginType": "DB",
   "pluginId": "smtp-plugin",
   "unpublishedAction": {
-    "name": "sendEmail",
+    "name": "sendEmailRequestCreated",
     "datasource": {
       "name": "Yahoo Email",
       "pluginId": "smtp-plugin",
@@ -18,14 +18,14 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "Dear {{this.params.toName}}.\n\n{{this.params.user}} request to leave in {{this.params.totalDays}} days, from {{this.params.startDate}} to {{this.params.endDate}}.\n\nPlease goto this link to approve or reject leave request.\n\nThank you.",
+      "body": "Dear boss.\n\n{{'\\r\\n'}}\n\n{{appsmith.user.name}} (email {{appsmith.user.email}}) request to leave in {{totalDayE.text}} days, \nfrom {{Utils.formatStartTime(startTimeE.selectedDate)}} to {{Utils.formatStartTime(endTimeE.selectedDate)}}.\n\n{{'\\r\\n'}}\n\nPlease goto this link to approve or reject leave request.\n\n{{'\\r\\n'}}\n\nThank you.",
       "selfReferencingDataPaths": [],
       "formData": {
         "command": "SEND",
         "send": {
           "from": "tranphuong_080@yahoo.com",
           "to": "{{this.params.toEmail}}",
-          "subject": "Leave Request: {{this.params.user}} require to leave at {{this.params.startDate}}"
+          "subject": "Leave Request: {{appsmith.user.name}} require to leave at {{Utils.formatStartTime(startTimeE.selectedDate)}}"
         }
       }
     },
@@ -45,19 +45,20 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "this.params.endDate",
-      "this.params.startDate",
+      "'\\r\\n'",
+      "Utils.formatStartTime(endTimeE.selectedDate)",
+      "Utils.formatStartTime(startTimeE.selectedDate)",
+      "appsmith.user.email",
+      "appsmith.user.name",
       "this.params.toEmail",
-      "this.params.toName",
-      "this.params.totalDays",
-      "this.params.user"
+      "totalDayE.text"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": []
   },
-  "id": "Leave Request_sendEmail",
+  "id": "Leave Request_sendEmailRequestCreated",
   "deleted": false,
   "gitSyncId": "63a05b5f4f35af560dc135d6_63a55770647efb486b76dd82"
 }

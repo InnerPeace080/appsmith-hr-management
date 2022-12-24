@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "async () => {\n  await createLeaveRequest.run();\n  closeModal(\"confirmModal\");\n}",
+      "body": "async () => {\n  await createLeaveRequest.run();\n  sendEmailRequestCreated.run({\n    toEmail: getMe.data[0][\"Leader/manager 1\"]\n  });\n  closeModal(\"confirmModal\");\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
       "isAsync": true
@@ -35,7 +35,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "async () => {\n  await createLeaveRequest.run();\n  closeModal(\"confirmModal\");\n}"
+      "async () => {\n  await createLeaveRequest.run();\n  sendEmailRequestCreated.run({\n    toEmail: getMe.data[0][\"Leader/manager 1\"]\n  });\n  closeModal(\"confirmModal\");\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,
