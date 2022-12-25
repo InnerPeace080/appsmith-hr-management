@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "TimeKeepingApi",
+    "pageId": "Time Keeping",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tgoToWork:async ()=>{\n\t\tif(getMyToday.data.length>0){\n\t\t\treturn;\n\t\t}\n\t\tawait goToWork.run()\n\t\tgetMyToday.run()\n\t},\n\tendDay :async ()=>{\n\t\tif(getMyToday.data.length!==1){\n\t\t\treturn;\n\t\t}\n\t\tconst myToday=getMyToday.data[0]\n\t\tconst startTime = moment(myToday[\"Start Time\"]) \n\t\tawait endDay.run({\n\t\t\trowIndex:myToday.rowIndex,\n\t\t\ttotalHours: moment().hours - startTime.hours()\n\t\t})\n\t\tgetMyToday.run()\n\t},\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Time Keeping_TimeKeepingApi",
+  "deleted": false,
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a7f907690c8f1a0335b168"
+}

@@ -2,8 +2,8 @@
   "pluginType": "JS",
   "pluginId": "js-plugin",
   "unpublishedAction": {
-    "name": "createLeaveRequestSheetForMonth",
-    "fullyQualifiedName": "Startup.createLeaveRequestSheetForMonth",
+    "name": "createLeaveRequestSheet",
+    "fullyQualifiedName": "Startup.createLeaveRequestSheet",
     "datasource": {
       "name": "UNUSED_DATASOURCE",
       "pluginId": "js-plugin",
@@ -41,7 +41,7 @@
     "policies": [],
     "userPermissions": []
   },
-  "id": "Leave Request_Startup.createLeaveRequestSheetForMonth",
+  "id": "Leave Request_Startup.createLeaveRequestSheet",
   "deleted": false,
   "gitSyncId": "63a05b5f4f35af560dc135d6_63a42d84fcb7cc4992ad9aae"
 }

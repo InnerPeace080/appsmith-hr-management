@@ -1,0 +1,16 @@
+{
+  "unpublishedCollection": {
+    "name": "Startup",
+    "pageId": "Time Keeping",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "body": "export default {\n\tdelay: async (time)=>{\n\t\treturn new Promise((resolve)=>{\n\t\t\tsetTimeout(()=>{resolve()},time)\n\t\t})\n\t},\n\tcreateTimeKeepingSheet: async () => {\n\t\t//use async-await or promises\n\t\tawait getTimeKeepingSpreadsheet.run()\n\t\tconst spreadsheetData = getTimeKeepingSpreadsheet.data\n\t\tconst currentTitle = moment().format('YYYY-MM')\n\t\tif(!spreadsheetData.sheets.find((sheet)=>sheet.title===currentTitle)){\n\t\t\tawait addTimeKeepingSheet.run({title:currentTitle})\n\t\t\tawait initTitleTimeKeepingSheet.run({sheet:currentTitle})\n\t\t}\n\t\t\n\t\tconst nextTitle = moment().add(1,'months').format('YYYY-MM')\n\t\tif(!spreadsheetData.sheets.find((sheet)=>sheet.title===nextTitle)){\n\t\t\tawait addTimeKeepingSheet.run({title:nextTitle})\n\t\t\tawait initTitleTimeKeepingSheet.run({sheet:nextTitle})\n\t\t}\n\t}\n}",
+    "variables": [],
+    "userPermissions": []
+  },
+  "id": "Time Keeping_Startup",
+  "deleted": false,
+  "gitSyncId": "63a05b5f4f35af560dc135d6_63a7f486fcb7cc4992adc4d8"
+}
