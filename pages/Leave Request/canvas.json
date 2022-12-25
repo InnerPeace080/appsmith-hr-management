@@ -159,7 +159,7 @@
                       "overflow": "NONE",
                       "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
                       "dynamicTriggerPathList": [],
-                      "leftColumn": 1.5,
+                      "leftColumn": 2,
                       "dynamicBindingPathList": [
                         {
                           "key": "truncateButtonColor"
@@ -176,7 +176,7 @@
                       "text": "Leave Request",
                       "key": "gbl2ckfv72",
                       "isDeprecated": false,
-                      "rightColumn": 25.5,
+                      "rightColumn": 63,
                       "textAlign": "LEFT",
                       "dynamicHeight": "AUTO_HEIGHT",
                       "widgetId": "mzgab6ddua",
