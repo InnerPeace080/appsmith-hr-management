@@ -6,7 +6,7 @@
     "pluginType": "JS",
     "actions": [],
     "archivedActions": [],
-    "body": "export default {\n\tcreateLeaveRequest: async () => {\n\t\tawait createLeaveRequest.run()\t\t\n\t\t\n\t\t// send email\n\t\tsendEmailRequestCreated.run({toEmail:getMe.data[0][\"Leader/manager 1\"]})\n\t\t\t\t\n\t\t// close modal when success\n\t\tcloseModal(\"confirmModal\")\n\t},\n\tcancelLeaveRequest: async (leaveRequestData)=>{\n\t\tawait cancelLeaveRequest.run({rowIndex:leaveRequestData.rowIndex})\n\t\tlistMyLeavesRequested.run()\n\t}\n}",
+    "body": "export default {\n\tcreateLeaveRequest: async () => {\n\t\tawait createLeaveRequest.run()\t\t\n\t\t\n\t\t// send email\n\t\tsendEmailRequestCreated.run({toEmail:getMe.data[0][\"Leader/manager 1\"]})\n\t\t\t\t\n\t\t// close modal when success\n\t\tcloseModal(\"confirmModal\")\n\t\tshowAlert(\"Success\")\n\t},\n\tcancelLeaveRequest: async (leaveRequestData)=>{\n\t\tawait cancelLeaveRequest.run({rowIndex:leaveRequestData.rowIndex})\n\t\tlistMyLeavesRequested.run()\n\t}\n}",
     "variables": [],
     "userPermissions": []
   },
