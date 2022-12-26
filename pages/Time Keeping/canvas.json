@@ -296,7 +296,7 @@
                       "labelTextSize": "0.875rem",
                       "isRequired": false,
                       "isDeprecated": false,
-                      "rightColumn": 30,
+                      "rightColumn": 31,
                       "dynamicHeight": "FIXED",
                       "widgetId": "z9ygzzn15g",
                       "accentColor": "{{appsmith.theme.colors.primaryColor}}",
@@ -310,7 +310,7 @@
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
                       "iconAlign": "left",
-                      "defaultText": "{{moment(getMyToday.data?.[0]?.[\"Start Time\"]).format('HH:mm:SS') }}",
+                      "defaultText": "{{getMyToday.data?.[0]?.[\"Start Time\"]? moment(getMyToday.data?.[0]?.[\"Start Time\"]).format('HH:mm:SS'):'Please check in' }}",
                       "minDynamicHeight": 4
                     },
                     {
@@ -335,7 +335,7 @@
                       "parentColumnSpace": 6.53125,
                       "dynamicTriggerPathList": [],
                       "resetOnSubmit": true,
-                      "leftColumn": 34,
+                      "leftColumn": 33,
                       "dynamicBindingPathList": [
                         {
                           "key": "accentColor"
@@ -369,7 +369,7 @@
                       "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                       "maxDynamicHeight": 9000,
                       "iconAlign": "left",
-                      "defaultText": "{{moment(getMyToday.data?.[0]?.[\"End Time\"]).format('HH:mm:SS')}}",
+                      "defaultText": "{{getMyToday.data?.[0]?.[\"End Time\"]?moment(getMyToday.data?.[0]?.[\"End Time\"]).format('HH:mm:SS'):'Please check out'}}",
                       "minDynamicHeight": 4
                     }
                   ],
@@ -410,23 +410,12 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Time Keeping_getTimeKeepingSpreadsheet",
-              "name": "getTimeKeepingSpreadsheet",
+              "id": "Time Keeping_getMe",
+              "name": "getMe",
               "confirmBeforeExecute": false,
               "pluginType": "SAAS",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Time Keeping_Startup.createTimeKeepingSheet",
-              "name": "Startup.createTimeKeepingSheet",
-              "collectionId": "Time Keeping_Startup",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  await getTimeKeepingSpreadsheet.run();\n  const spreadsheetData = getTimeKeepingSpreadsheet.data;\n  const currentTitle = moment().format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addTimeKeepingSheet.run({\n      title: currentTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'months').format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addTimeKeepingSheet.run({\n      title: nextTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
+                "appsmith.user.email"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -446,12 +435,23 @@
           ],
           [
             {
-              "id": "Time Keeping_getMe",
-              "name": "getMe",
+              "id": "Time Keeping_getTimeKeepingSpreadsheet",
+              "name": "getTimeKeepingSpreadsheet",
               "confirmBeforeExecute": false,
               "pluginType": "SAAS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Time Keeping_Startup.createTimeKeepingSheet",
+              "name": "Startup.createTimeKeepingSheet",
+              "collectionId": "Time Keeping_Startup",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
               "jsonPathKeys": [
-                "appsmith.user.email"
+                "async () => {\n  await getTimeKeepingSpreadsheet.run();\n  const spreadsheetData = getTimeKeepingSpreadsheet.data;\n  const currentTitle = moment().format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addTimeKeepingSheet.run({\n      title: currentTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'months').format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addTimeKeepingSheet.run({\n      title: nextTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
