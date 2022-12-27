@@ -150,7 +150,7 @@
                 "Full_name": 119,
                 "Start_Date": 101,
                 "Total_Days": 72,
-                "Reason": 299,
+                "Reason": 324,
                 "End_Date": 91,
                 "Total": 87,
                 "Date": 127
@@ -278,7 +278,7 @@
                   }
                 },
                 "Reason": {
-                  "allowCellWrapping": false,
+                  "allowCellWrapping": true,
                   "index": 4,
                   "width": 150,
                   "originalId": "Reason",
