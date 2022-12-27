@@ -18,7 +18,7 @@
   "unreadCommentThreads": 0,
   "color": "#D9E7FF",
   "unpublishedAppLayout": {
-    "type": "TABLET"
+    "type": "FLUID"
   },
   "publishedAppLayout": {
     "type": "TABLET"

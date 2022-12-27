@@ -13,7 +13,7 @@
           "detachFromLayout": true,
           "widgetId": "0",
           "topRow": 0,
-          "bottomRow": 660,
+          "bottomRow": 840,
           "containerStyle": "none",
           "snapRows": 84,
           "parentRowSpace": 1,
@@ -51,7 +51,7 @@
               "animateLoading": true,
               "parentColumnSpace": 12.3125,
               "dynamicTriggerPathList": [],
-              "leftColumn": 0,
+              "leftColumn": 1,
               "dynamicBindingPathList": [
                 {
                   "key": "borderRadius"
@@ -410,12 +410,23 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Time Keeping_getMe",
-              "name": "getMe",
+              "id": "Time Keeping_getTimeKeepingSpreadsheet",
+              "name": "getTimeKeepingSpreadsheet",
               "confirmBeforeExecute": false,
               "pluginType": "SAAS",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "Time Keeping_Startup.createTimeKeepingSheet",
+              "name": "Startup.createTimeKeepingSheet",
+              "collectionId": "Time Keeping_Startup",
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
               "jsonPathKeys": [
-                "appsmith.user.email"
+                "async () => {\n  await getTimeKeepingSpreadsheet.run();\n  const spreadsheetData = getTimeKeepingSpreadsheet.data;\n  const currentTitle = moment().format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addTimeKeepingSheet.run({\n      title: currentTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'months').format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addTimeKeepingSheet.run({\n      title: nextTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             },
@@ -435,23 +446,12 @@
           ],
           [
             {
-              "id": "Time Keeping_getTimeKeepingSpreadsheet",
-              "name": "getTimeKeepingSpreadsheet",
+              "id": "Time Keeping_getMe",
+              "name": "getMe",
               "confirmBeforeExecute": false,
               "pluginType": "SAAS",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
-              "id": "Time Keeping_Startup.createTimeKeepingSheet",
-              "name": "Startup.createTimeKeepingSheet",
-              "collectionId": "Time Keeping_Startup",
-              "confirmBeforeExecute": false,
-              "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  await getTimeKeepingSpreadsheet.run();\n  const spreadsheetData = getTimeKeepingSpreadsheet.data;\n  const currentTitle = moment().format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === currentTitle)) {\n    await addTimeKeepingSheet.run({\n      title: currentTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: currentTitle\n    });\n  }\n  const nextTitle = moment().add(1, 'months').format('YYYY-MM');\n  if (!spreadsheetData.sheets.find(sheet => sheet.title === nextTitle)) {\n    await addTimeKeepingSheet.run({\n      title: nextTitle\n    });\n    await initTitleTimeKeepingSheet.run({\n      sheet: nextTitle\n    });\n  }\n}"
+                "appsmith.user.email"
               ],
               "timeoutInMillisecond": 10000
             }
