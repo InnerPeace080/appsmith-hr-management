@@ -42,8 +42,8 @@
                 "parent",
                 "group"
               ],
-              "topRow": 23,
-              "bottomRow": 58,
+              "topRow": 13,
+              "bottomRow": 48,
               "parentRowSpace": 10,
               "type": "CONTAINER_WIDGET",
               "hideCard": false,
@@ -51,7 +51,7 @@
               "animateLoading": true,
               "parentColumnSpace": 12.3125,
               "dynamicTriggerPathList": [],
-              "leftColumn": 1,
+              "leftColumn": 0,
               "dynamicBindingPathList": [
                 {
                   "key": "borderRadius"
@@ -437,9 +437,9 @@
               "pluginType": "SAAS",
               "jsonPathKeys": [
                 "appsmith.user.email",
-                "moment().set({hour:23}).toLocaleString()",
+                "moment().format('YYYY-MM')",
                 "moment().set({hour:0}).toLocaleString()",
-                "moment().format('YYYY-MM')"
+                "moment().set({hour:23}).toLocaleString()"
               ],
               "timeoutInMillisecond": 10000
             }
