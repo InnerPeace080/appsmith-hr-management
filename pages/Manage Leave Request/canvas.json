@@ -395,7 +395,7 @@
               "rightColumn": 64,
               "textSize": "0.875rem",
               "widgetId": "wxglag23qo",
-              "tableData": "{{listLeaveRequested.data.map((c)=>({\n\t\"Full name\": c[\"Full Name\"],\n\t\"Email\": c[\"Email\"],\n\t\"Date\":`${moment(c[\"Start Date\"]).format('DD/MM')} -> ${moment(c[\"End Date\"]).format('DD/MM')}` ,\n\t\"Total\":`${c['Total Days']}/${listStaff.data.find(u=>u.Email===c.Email)[\"Avaiable Leaves\"]}`,\n\t\"Reason\":c.Reason,\n\t\"Action\":'',\n\t\"data\":c\n}))}}",
+              "tableData": "{{listLeaveRequested.data.map((c)=>({\n\t\"Full name\": c[\"Full Name\"],\n\t\"Email\": c[\"Email\"],\n\t\"Date\":`${moment(c[\"Start Date\"]).format('DD/MM')} -> ${moment(c[\"End Date\"]).format('DD/MM')}` ,\n\t\"Total\":`${c['Total Days']}/${listStaff.data.find(u=>u.Email===c.Email)[\"Available Leaves\"]}`,\n\t\"Reason\":c.Reason,\n\t\"Action\":'',\n\t\"data\":c\n}))}}",
               "label": "Data",
               "searchKey": "",
               "parentId": "0",
