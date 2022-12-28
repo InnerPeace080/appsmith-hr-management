@@ -18,14 +18,14 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "Dear boss.\n\n{{'\\r\\n'}}\n\n{{appsmith.user.name}} (email {{appsmith.user.email}}) request to leave in {{totalDayE.text}} days, \nfrom {{Utils.formatStartTime(startTimeE.selectedDate)}} to {{Utils.formatStartTime(endTimeE.selectedDate)}}.\n\n{{'\\r\\n'}}\n\nPlease goto this link to approve or reject leave request.\n\nhttps://app.appsmith.com/app/goga-hr-management/manage-leave-request-63a0796b749a014ec6e56c3b\n\n{{'\\r\\n'}}\n\nThank you.",
+      "body": "Dear boss.\n\n{{'\\r\\n'}}\n\n{{appsmith.user.name||''}} (email {{appsmith.user.email}}) request to leave in {{totalDayE.text}} days, \nfrom {{Utils.formatStartTime(startTimeE.selectedDate)}} to {{Utils.formatStartTime(endTimeE.selectedDate)}}.\n\n{{'\\r\\n'}}\n\nPlease goto this link to approve or reject leave request.\n\nhttps://app.appsmith.com/app/goga-hr-management/manage-leave-request-63a0796b749a014ec6e56c3b\n\n{{'\\r\\n'}}\n\nThank you.",
       "selfReferencingDataPaths": [],
       "formData": {
         "command": "SEND",
         "send": {
           "from": "tranphuong_080@yahoo.com",
           "to": "{{this.params.toEmail}}",
-          "subject": "Leave Request: {{appsmith.user.name}} require to leave at {{Utils.formatStartTime(startTimeE.selectedDate)}}"
+          "subject": "Leave Request: {{appsmith.user.name||appsmith.user.email}} require to leave at {{Utils.formatStartTime(startTimeE.selectedDate)}}"
         }
       }
     },
@@ -49,7 +49,8 @@
       "Utils.formatStartTime(endTimeE.selectedDate)",
       "Utils.formatStartTime(startTimeE.selectedDate)",
       "appsmith.user.email",
-      "appsmith.user.name",
+      "appsmith.user.name||''",
+      "appsmith.user.name||appsmith.user.email",
       "this.params.toEmail",
       "totalDayE.text"
     ],
